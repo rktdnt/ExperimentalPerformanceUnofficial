@@ -11,6 +11,10 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
+new Model64(false, false),
+            new Model64(true, true),
+            new Model64(true, true, 16),
+
 public class ClassAnalysisManager {
 
     private final Layouter[] layouts;
@@ -19,18 +23,18 @@ public class ClassAnalysisManager {
     public ClassAnalysisManager(boolean attemptAllLayouts) {
         this.layouts = attemptAllLayouts ? new Layouter[] {
                 new RawLayouter(new Model32()),
-                new RawLayouter(new Model64()),
-                new RawLayouter(new Model64_COOPS_CCPS()),
+                new RawLayouter(new Model64(false, false),),
+                new RawLayouter(new Model64(true, true),),
                 new HotSpotLayouter(new Model32(), 8),
                 new HotSpotLayouter(new Model64(), 8),
-                new HotSpotLayouter(new Model64_COOPS_CCPS(), 8),
-                new HotSpotLayouter(new Model64_COOPS_CCPS(16), 8),
+                new HotSpotLayouter(new Model64(true, true), 8),
+                new HotSpotLayouter(new Model64(true, true, 16), 8),
                 new HotSpotLayouter(new Model32(), 15),
                 new HotSpotLayouter(new Model64(), 15),
-                new HotSpotLayouter(new Model64_CCPS(), 15),
-                new HotSpotLayouter(new Model64_COOPS_CCPS(), 15),
-                new HotSpotLayouter(new Model64_CCPS(), 15),
-                new HotSpotLayouter(new Model64_CCPS(16), 15),
+                new HotSpotLayouter(new Model64(true, true), 15),
+                new HotSpotLayouter(new Model64(true, true, 16), 15),
+                new HotSpotLayouter(new Model64(false, true), 15),
+                new HotSpotLayouter(new Model64(false, true, 16), 15),
         } : new Layouter[]{new CurrentLayouter()}; // Automatically detects current model
     }
 
