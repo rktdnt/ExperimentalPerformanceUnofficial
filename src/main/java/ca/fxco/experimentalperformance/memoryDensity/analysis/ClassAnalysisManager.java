@@ -11,10 +11,6 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
-new Model64(false, false),
-            new Model64(true, true),
-            new Model64(true, true, 16),
-
 public class ClassAnalysisManager {
 
     private final Layouter[] layouts;
