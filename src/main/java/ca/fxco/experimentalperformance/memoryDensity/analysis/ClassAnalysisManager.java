@@ -19,8 +19,8 @@ public class ClassAnalysisManager {
     public ClassAnalysisManager(boolean attemptAllLayouts) {
         this.layouts = attemptAllLayouts ? new Layouter[] {
                 new RawLayouter(new Model32()),
-                new RawLayouter(new Model64(false, false),),
-                new RawLayouter(new Model64(true, true),),
+                new RawLayouter(new Model64(false, false)),
+                new RawLayouter(new Model64(true, true)),
                 new HotSpotLayouter(new Model32(), 8),
                 new HotSpotLayouter(new Model64(), 8),
                 new HotSpotLayouter(new Model64(true, true), 8),
